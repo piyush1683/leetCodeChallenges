@@ -3,6 +3,11 @@
  */
 package leetcodechallenges;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -10,5 +15,10 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        List<Integer> numbersWithDuplicates = Arrays.asList(1, 2, 3, 2, 4, 1, 5, 6, 5);
+        List<Integer> uniqueNumbers = (List<Integer>) numbersWithDuplicates
+                .stream()
+                .distinct().collect(Collectors.toList());
+        uniqueNumbers.forEach(a -> System.out.println(a));
     }
 }
