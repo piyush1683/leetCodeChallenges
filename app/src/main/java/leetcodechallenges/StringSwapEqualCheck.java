@@ -5,21 +5,23 @@ import java.util.ArrayList;
 public class StringSwapEqualCheck {
     public static void main(String[] args) {
         // Create two strings
-        String str1 = "banker";
-        String str2 = "banrek";
-        checkEqualString(str1, str2);
+        String str1 = "abc";
+        String str2 = "cba";
+        StringSwapEqualCheck stringSwapEqualCheck = new StringSwapEqualCheck();
+        stringSwapEqualCheck.checkEqualString(str1, str2);
 
     }
 
-    public static void checkEqualString(String str1, String str2) {
+    public boolean checkEqualString(String str1, String str2) {
         // Check if the two strings are equal
         if (str1.equals(str2)) {
             System.out.println("The strings are equal.");
+            return true;
         }
 
         if (str1.length() != str2.length()) {
             System.out.println("The strings are different objects in memory.");
-            return;
+            return false;
         }
 
         ArrayList<Character> charList1 = new ArrayList<>();
@@ -37,16 +39,17 @@ public class StringSwapEqualCheck {
 
         if (charList1.size() > 2) {
             System.out.println("Piyush1 The strings cannot be made equal by swapping characters.");
-            return;
+            return false;
         } else if (charList1.size() == 2) {
             if (charList1.get(0) == charList2.get(1) && charList1.get(1) == charList2.get(0)) {
                 System.out.println("Piyush2 The strings can be made equal by swapping characters.");
-                return;
+                return true;
             } else {
                 System.out
                         .println("Piyush3 The strings cannot be made equal by swapping characters." + charList2.size());
-                return;
+                return false;
             }
         }
+        return false;
     }
 }
